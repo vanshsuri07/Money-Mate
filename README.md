@@ -112,7 +112,7 @@ Frontend .env.production
 VITE_BASE_URL=https://your-backend-service.onrender.com
 ```
 
-###4️⃣ Run the application
+### 4️⃣ Run the application
 
 Backend:
 ```
@@ -127,21 +127,23 @@ npm run dev
 ```
 
 ## 🌐 Deployment
-Backend (Render)
+### Backend (Render)
 
-Service Type: Web Service
+- Service Type: Web Service
 
-Root Directory: backend
+- Root Directory: backend
 
-Build Command: npm install
+- Build Command: npm install
 
-Start Command: npm start
+- Start Command: npm start
 
-Frontend (Vercel)
+### Frontend (Render)
 
-Root Directory: frontend
+- Root Directory: frontend
 
-Build Command: npm install && npm run build
+- Build Command: npm install && npm run build
+
+[🔗 Live Demo] https://money-mate-1-9vqe.onrender.com
 
 
 ## 🤝 Contributing
@@ -166,8 +168,9 @@ This project is licensed under the MIT License – feel free to use and modify f
 
 Your Name
 
-GitHub: @vanshsuri07
+GitHub: [@vanshsuri07](https://github.com/vanshsuri07)
 
-LinkedIn: @vanshsuri007
+
+LinkedIn: [@vanshsuri007](https://www.linkedin.com/in/vanshsuri007/)
 
 
