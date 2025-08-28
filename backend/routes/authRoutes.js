@@ -18,13 +18,9 @@ router.post("/upload-image", upload.single("image"), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ message: "No file uploaded" });
   }
-
-  // Store only filename
-  const fileName = req.file.filename;
-
-  // Still return the full URL for immediate preview
-  const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${fileName}`;
-
-  res.status(200).json({ fileName, imageUrl });
+  const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${
+    req.file.filename
+  }`;
+  res.status(200).json({ imageUrl });
 });
 module.exports = router;
