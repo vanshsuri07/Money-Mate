@@ -9,9 +9,12 @@ const SideMenu = ({ activeMenu }) => {
   const { user, clearUser } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const getProfileImageSrc = (fileName) => {
-    if (!fileName) return "";
-    return `${BASE_URL}/uploads/${fileName}`;
+  const getProfileImageSrc = (url) => {
+    if (!url) return "";
+    if (url.startsWith("http://localhost")) {
+      return `${BASE_URL}/uploads/${url.split("/").pop()}`;
+    }
+    return url.startsWith("http") ? url : `${BASE_URL}/uploads/${url}`;
   };
   const handleClick = (route) => {
     if (route === "Logout") {
