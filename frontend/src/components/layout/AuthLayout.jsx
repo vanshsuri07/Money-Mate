@@ -6,7 +6,7 @@ const AuthLayout = ({ children }) => {
     <div className="flex">
       <div className="w-screen h-screen md:w-[60vw] px-12 pt-8 pb-12">
         <div className="flex items-center space-x-2">
-          <img src="./public/Logo.png" alt="Logo" className="h-8" />
+          <img src="./Logo.png" alt="Logo" className="h-8" />
           <h2 className="text-lg font-bold text-black">MoneyMate</h2>
         </div>
         {children}

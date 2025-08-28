@@ -16,7 +16,7 @@ const Navbar = ({ activeMenu }) => {
           <HiOutlineMenu className="text-2xl" />
         )}
       </button>
-      <img src="./public/Logo.png" alt="Logo" className="h-8" />
+      <img src="./Logo.png" alt="Logo" className="h-8" />
       <h2 className="text-lg font-bold text-black">MoneyMate</h2>
 
       {openSideMenu && (

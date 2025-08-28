@@ -1,13 +1,19 @@
 import React, { useContext } from "react";
+// adjust path to match your project
 import { SIDE_MENU_DATA } from "../../utils/data";
 import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import CharAvatar from "../Cards/CharAvatar";
+import { BASE_URL } from "../../utils/apiPath";
 
 const SideMenu = ({ activeMenu }) => {
   const { user, clearUser } = useContext(UserContext);
   const navigate = useNavigate();
 
+  const getProfileImageSrc = (fileName) => {
+    if (!fileName) return "";
+    return `${BASE_URL}/uploads/${fileName}`;
+  };
   const handleClick = (route) => {
     if (route === "Logout") {
       handleLogout();
@@ -21,19 +27,20 @@ const SideMenu = ({ activeMenu }) => {
     clearUser();
     navigate("/login");
   };
+  console.log("Profile Image URL:", user?.profileImageUrl);
 
   return (
     <div className="w-64 h-[calc(100vh-61px)] bg-white border-r border-gray-200/50 sticky p-5 z-20 top-[61px]">
       <div className="flex flex-col items-center justify-center gap-3 mt-3 mb-7">
         {user?.profileImageUrl ? (
           <img
-            src={user?.profileImageUrl || ""}
-            alt="Profile Image"
-            className="w-20 h-20 bg-slate-400 rounded-full"
+            src={getProfileImageSrc(user?.profileImageUrl)}
+            alt="Profile"
+            className="w-20 h-20 bg-slate-400 rounded-full object-cover"
           />
         ) : (
           <CharAvatar
-            fullName={user?.fullName}
+            fullName={user?.fullName || ""}
             width="w-20"
             height="h-20"
             style="text-xl"

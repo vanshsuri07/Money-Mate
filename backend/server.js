@@ -16,6 +16,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+const __dirname = path.resolve();
 
 app.use(express.json());
 
