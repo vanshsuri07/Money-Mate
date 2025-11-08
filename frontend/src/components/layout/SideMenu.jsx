@@ -9,13 +9,21 @@ const SideMenu = ({ activeMenu }) => {
   const { user, clearUser } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const getProfileImageSrc = (url) => {
-    if (!url) return "";
-    if (url.startsWith("http://localhost")) {
-      return `${BASE_URL}/uploads/${url.split("/").pop()}`;
-    }
-    return url.startsWith("http") ? url : `${BASE_URL}/uploads/${url}`;
-  };
+ const getProfileImageSrc = (url) => {
+  if (!url) return "";
+  
+  
+  if (url.startsWith("http") && !url.startsWith("http://localhost")) {
+    return url;
+  }
+  
+  
+  const filename = url.includes('/uploads/') 
+    ? url.split('/uploads/').pop() 
+    : url.split('/').pop();
+  
+  return `${BASE_URL}/uploads/${filename}`;
+};
   const handleClick = (route) => {
     if (route === "Logout") {
       handleLogout();
