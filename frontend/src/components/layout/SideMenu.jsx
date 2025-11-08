@@ -9,21 +9,21 @@ const SideMenu = ({ activeMenu }) => {
   const { user, clearUser } = useContext(UserContext);
   const navigate = useNavigate();
 
- const getProfileImageSrc = (url) => {
-  if (!url) return "";
-  
-  
-  if (url.startsWith("http") && !url.startsWith("http://localhost")) {
-    return url;
-  }
-  
-  
-  const filename = url.includes('/uploads/') 
-    ? url.split('/uploads/').pop() 
-    : url.split('/').pop();
-  
-  return `${BASE_URL}/uploads/${filename}`;
-};
+  const getProfileImageSrc = (url) => {
+    if (!url) return "";
+
+    // If it's already a full URL (not localhost), return as is
+    if (url.startsWith("http") && !url.startsWith("http://localhost")) {
+      return url;
+    }
+
+    // Extract filename if it's a localhost URL or path
+    const filename = url.includes("/uploads/")
+      ? url.split("/uploads/").pop()
+      : url.split("/").pop();
+
+    return `${BASE_URL}/uploads/${filename}`;
+  };
   const handleClick = (route) => {
     if (route === "Logout") {
       handleLogout();

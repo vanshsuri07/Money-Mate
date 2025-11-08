@@ -1,4 +1,4 @@
-export const BASE_URL = import.meta.env.VITE_BASE_URL;
+export const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 export const API_PATHS = {
   AUTH: {
@@ -21,7 +21,6 @@ export const API_PATHS = {
     DELETE_EXPENSE: (expenseId) => `/api/v1/expense/${expenseId}`,
     DOWNLOAD_EXPENSE: "/api/v1/expense/downloadexcel",
   },
-
   IMAGE: {
     UPLOAD_IMAGE: "/api/v1/auth/upload-image",
   },
