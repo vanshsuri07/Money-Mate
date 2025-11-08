@@ -14,18 +14,13 @@ app.use(
     origin: [
       process.env.CLIENT_URL,
       "http://localhost:5173",
-      "https://money-mate-1-9vqe.onrender.com",
-      "https://money-mate-plum.vercel.app", // ✅ ADD THIS LINE
+      "https://money-mate-lhit.onrender.com",
     ],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // ✅ Add OPTIONS
+    methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
-
-// ✅ ADD THIS - Handle preflight requests
-app.options("*", cors());
-
 app.use(express.json());
 
 connectDB();
