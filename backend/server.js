@@ -14,7 +14,7 @@ app.use(
     origin: [
       process.env.CLIENT_URL,
       "http://localhost:5173",
-      "https://money-mate-1-9vqe.onrender.com",
+      "https://money-mate-lhit.onrender.com",
       "https://money-mate-plum.vercel.app", // ✅ ADD THIS LINE
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // ✅ Add OPTIONS
